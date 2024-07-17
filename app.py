@@ -6,16 +6,18 @@ from cvzone.HandTrackingModule import HandDetector
 
 app = Flask(__name__)
 
-@app.route('/')
+
+@app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
 
-@app.route('/video_feed')
+
+@app.route("/video_feed")
 def video_feed():
-    return Response(gen(),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(gen(), mimetype="multipart/x-mixed-replace; boundary=frame")
 
-@app.route('/reset', methods=['POST'])
+
+@app.route("/reset", methods=["POST"])
 def reset():
     global ballPos, speedX, speedY, gameOver, score
     ballPos = [100, 100]
@@ -23,7 +25,8 @@ def reset():
     speedY = 25
     gameOver = False
     score = [0, 0]
-    return '', 204  # No Content response
+    return "", 204  # No Content response
+
 
 cap = cv.VideoCapture(0)
 cap.set(3, 1280)
@@ -42,6 +45,7 @@ speedX = 25
 speedY = 25
 gameOver = False
 score = [0, 0]
+
 
 def gen():
     global ballPos, speedX, speedY, gameOver, score
@@ -120,10 +124,10 @@ def gen():
 
         img[580:700, 20:233] = cv.resize(imgRaw, (213, 120))
 
-        ret, buffer = cv.imencode('.jpg', img)
+        ret, buffer = cv.imencode(".jpg", img)
         frame = buffer.tobytes()
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+        yield (b"--frame\r\n" b"Content-Type: image/jpeg\r\n\r\n" + frame + b"\r\n")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     app.run(debug=True)
