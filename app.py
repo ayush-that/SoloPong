@@ -127,7 +127,3 @@ def gen():
         ret, buffer = cv.imencode(".jpg", img)
         frame = buffer.tobytes()
         yield (b"--frame\r\n" b"Content-Type: image/jpeg\r\n\r\n" + frame + b"\r\n")
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
