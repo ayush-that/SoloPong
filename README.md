@@ -18,6 +18,4 @@ A ping-pong game that you can play alone. It uses computer vision to track your 
 	</table>
 </div>
 
-### Demo
-
-[![SoloPong](https://github.com/user-attachments/assets/f2b5edbe-5d0d-4853-9195-91e702b1707c)](https://www.youtube.com/watch?v=4_GEyFlE7M0)
+https://github.com/user-attachments/assets/74411d96-dd77-454c-a920-4f9a5b03740e
