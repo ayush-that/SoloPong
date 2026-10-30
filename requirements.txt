@@ -146,7 +146,7 @@ threadpoolctl==3.5.0
 tokenizers==0.19.1
 toml==0.10.2
 toolz==0.12.1
-tornado==6.4.1
+tornado==6.6
 tqdm==4.66.4
 transformers==4.42.3
 TravisPy==0.3.5
